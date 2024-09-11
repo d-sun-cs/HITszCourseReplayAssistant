@@ -9,7 +9,7 @@ const controlVideo = (event) => {
 		document.getElementById('jyd-pauseState').click()
 	}
 
-	if (event.keyCode === 70) {
+	if (event.keyCode === 70 && !event.ctrlKey) {
 		event.preventDefault()
 		console.log("f");
 		if (document.querySelector('#jyd-exitFullScreen').style.display === 'inline-block') {
@@ -48,36 +48,47 @@ const controlVideo = (event) => {
 		console.log("left arrow");
 		let v1 = document.getElementById('jyd-video1')
 		let v2 = document.getElementById('jyd-video2')
+		let v1paused = v1.paused
+		let v2paused = v2.paused
 		v1.pause()
 		v2.pause()
-		v1.currentTime -= 4
-		v2.currentTime -= 4
-		v1.play()
-		v2.play()
+		v1.currentTime -= 3
+		v2.currentTime -= 3
+		if (!v1paused) {
+			v1.play()
+		}
+		if (!v2paused) {
+			v2.play()
+		}
 	}
 
 	if (event.keyCode === 39) {
 		event.preventDefault()
-		console.log("right arrow");
+		console.log("right arrow")
 		document.getElementById('jyd-video1').currentTime += 3
 		document.getElementById('jyd-video2').currentTime += 3
 	}
 
+	if (event.keyCode === 70 && event.ctrlKey) {
+		console.log("Ctrl F")
+		document.querySelector('#jyd-video1').requestFullscreen()
+	}
+
 }
+
 document.addEventListener("keydown", controlVideo)
 
-if (document.querySelector('#jyd-teacherVoice')) {
-	document.querySelector('#jyd-teacherVoice').click()
+// if (document.querySelector('#jyd-teacherVoice')) {
+document.querySelector('#jyd-teacherVoice').click()
 
-	document.querySelector('#jyd-video1').onclick = () => {
-		setTimeout(() => document.querySelector('#jyd-teacherVoice').click(), 10)
-	}
-
-	document.querySelector('#jyd-video2').onclick = () => {
-		setTimeout(() => document.querySelector('#jyd-courseVoice').click(), 10)
-	}
-
+document.querySelector('#jyd-video1').onclick = () => {
+	setTimeout(() => document.querySelector('#jyd-teacherVoice').click(), 10)
 }
+
+document.querySelector('#jyd-video2').onclick = () => {
+	setTimeout(() => document.querySelector('#jyd-courseVoice').click(), 10)
+}
+// }
 
 if (document.querySelector('.curr-contentr-title.curr-contentr-list.clearfloat>a')) {
 	document.querySelectorAll('.curr-contentr-title.curr-contentr-list.clearfloat>a').forEach(elem => {
