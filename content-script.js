@@ -9,7 +9,7 @@ const controlVideo = (event) => {
 		document.getElementById('jyd-pauseState').click()
 	}
 
-	if (event.keyCode === 70 && !event.altKey) {
+	if (event.keyCode === 70 && !event.ctrlKey) {
 		event.preventDefault()
 		console.log("f");
 		if (document.querySelector('#jyd-exitFullScreen').style.display === 'inline-block') {
@@ -69,7 +69,7 @@ const controlVideo = (event) => {
 		document.getElementById('jyd-video2').currentTime += 3
 	}
 
-	if (event.keyCode === 70 && event.altKey) {
+	if (event.keyCode === 70 && event.ctrlKey) {
 		event.preventDefault()
 		console.log("Ctrl F")
 		document.querySelector('#jyd-video1').requestFullscreen()
