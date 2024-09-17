@@ -79,17 +79,17 @@ const controlVideo = (event) => {
 
 document.addEventListener("keydown", controlVideo)
 
-// if (document.querySelector('#jyd-teacherVoice')) {
-document.querySelector('#jyd-teacherVoice').click()
+if (document.querySelector('#jyd-teacherVoice')) {
+	document.querySelector('#jyd-teacherVoice').click()
 
-document.querySelector('#jyd-video1').onclick = () => {
-	setTimeout(() => document.querySelector('#jyd-teacherVoice').click(), 10)
-}
+	document.querySelector('#jyd-video1').onclick = () => {
+		setTimeout(() => document.querySelector('#jyd-teacherVoice').click(), 10)
+	}
 
-document.querySelector('#jyd-video2').onclick = () => {
-	setTimeout(() => document.querySelector('#jyd-courseVoice').click(), 10)
+	document.querySelector('#jyd-video2').onclick = () => {
+		setTimeout(() => document.querySelector('#jyd-courseVoice').click(), 10)
+	}
 }
-// }
 
 if (document.querySelector('.curr-contentr-title.curr-contentr-list.clearfloat>a')) {
 	document.querySelectorAll('.curr-contentr-title.curr-contentr-list.clearfloat>a').forEach(elem => {
