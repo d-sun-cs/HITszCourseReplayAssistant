@@ -70,7 +70,7 @@ const controlVideo = (event) => {
 	}
 
 	if (event.keyCode === 70 && event.ctrlKey) {
-		event.preventDefault()
+		// event.preventDefault()
 		console.log("Ctrl F")
 		document.querySelector('#jyd-video1').requestFullscreen()
 	}
